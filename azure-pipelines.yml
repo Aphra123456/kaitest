@@ -24,10 +24,10 @@ steps:
     rootFolderOrFile: '$(Build.BinariesDirectory)'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '/s/KAITEST/dist'
+    archiveFile: '/KAITEST/dist'
     replaceExistingArchive: true
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'
-    artifact: 'kai'
+    artifact: 'kaitest'
     publishLocation: 'pipeline'

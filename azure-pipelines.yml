@@ -26,8 +26,8 @@ steps:
     archiveType: 'zip'
     archiveFile: 'KAITEST/dist'
     replaceExistingArchive: true
-- task: PublishPipelineArtifact@1
+- task: PublishBuildArtifacts@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifact: 'kaitest'
-    publishLocation: 'pipeline'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'

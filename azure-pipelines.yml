@@ -26,3 +26,8 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.BinariesDirectory)/dist'
     replaceExistingArchive: true
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'kai'
+    publishLocation: 'pipeline'

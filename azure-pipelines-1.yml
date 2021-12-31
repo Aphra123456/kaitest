@@ -17,16 +17,19 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
-  condition: 
+- task: Npm@1
+  inputs:
+    command: 'install'
 
+- task: Npm@1
+  inputs:
+    command: 'publish'
+    publishRegistry: 'useFeed'
+    publishFeed: 'd93e8747-06be-4098-a455-f336e1ca3df0'
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: 'D:/a/1/s/dist'
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
     includeRootFolder: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'

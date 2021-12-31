@@ -26,9 +26,14 @@ steps:
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)'
     includeRootFolder: true
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: 'kaitest/dist'
+    includeRootFolder: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
+
 
 - task: PublishBuildArtifacts@1
   inputs:
